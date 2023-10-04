@@ -1,0 +1,141 @@
+##NPP National Delegates Conferences: A Historical Analysis 
+# Load the ggplot2 library
+library(ggplot2)
+
+# Create a data frame with the election results
+results <- data.frame(
+  Candidate = c("Prof. Albert Adu Boahen", "Dr. Kofi Dsane Selby", "John Agyekum Kufuor",
+                "Dr. Kwame Safo Adu", "Dr. John Atta Addison", "John Kwame Kodua"),
+  Votes = c(1121, 343, 326, 149, 32, 9)
+)
+
+# Venue and valid votes cast information
+venue_info <- "Venue: University of Ghana, Legon\nValid Votes Cast: 1,980"
+
+# Create a vertical bar chart using ggplot2
+bar_chart <- ggplot(results, aes(x = reorder(Candidate, -Votes), y = Votes, fill = Candidate)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label = Votes), vjust = -0.5, size = 4) +
+  labs(
+    title = "NPP National Delegates Conference (1992)",
+    subtitle = "Prepared by Adventurous Philant",
+    caption = venue_info,
+    x = "Candidates",
+    y = "Votes",
+    fill = "Candidate"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "none") +
+  scale_fill_manual(values = c("Prof. Albert Adu Boahen" = "red",
+                               "Dr. Kofi Dsane Selby" = "blue",
+                               "John Agyekum Kufuor" = "grey",
+                               "Dr. Kwame Safo Adu" = "red",
+                               "Dr. John Atta Addison" = "blue",
+                               "John Kwame Kodua" = "red"))
+
+# Print the vertical bar chart
+print(bar_chart)
+
+
+
+# Load the ggplot2 library
+library(ggplot2)
+
+# Create a data frame with the election results for 1996
+results_1996 <- data.frame(
+  Candidate = c("John Agyekum Kufuor", "Prof. Albert Adu Boahen", "John Henry Mensah",
+                "Dr. Jones Ofori Atta", "Dr. Kwame Safo Adu", "Dr. Kofi Dsane Selby"),
+  Votes = c(1034, 710, 110, 69, 42, 24)
+)
+
+# Venue and valid votes cast information for 1996
+venue_info_1996 <- "Venue: University of Ghana, Legon\nValid Votes Cast: 1,989"
+
+# Create a vertical bar chart for 1996 using ggplot2
+bar_chart_1996 <- ggplot(results_1996, aes(x = reorder(Candidate, -Votes), y = Votes, fill = Candidate)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label = Votes), vjust = -0.5, size = 4) +
+  labs(
+    title = "NPP National Delegates Conference (1996)",
+    subtitle = "Prepared by Adventurous Philant",
+    caption = venue_info_1996,
+    x = "Candidates",
+    y = "Votes",
+    fill = "Candidate"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "none") +
+  scale_fill_manual(values = c("John Agyekum Kufuor" = "red",
+                               "Prof. Albert Adu Boahen" = "blue",
+                               "John Henry Mensah" = "grey",
+                               "Dr. Jones Ofori Atta" = "red",
+                               "Dr. Kwame Safo Adu" = "blue",
+                               "Dr. Kofi Dsane Selby" = "grey"))
+
+# Print the vertical bar chart for 1996
+print(bar_chart_1996)
+
+
+
+# Load the ggplot2 library
+library(ggplot2)
+
+# Create a data frame with the vote information for the specified candidates
+candidates <- c("Dr. Kwame Safo Adu", "John Agyekum Kufuor", "Dr. Kofi Dsane Selby", "Prof. Albert Adu Boahen")
+votes_1992 <- c(149, 326, 343, 1121)
+votes_1996 <- c(42, 1034, 24, 710)
+
+# Reorder the levels of the Candidate factor variable
+data <- data.frame(
+  Candidate = factor(candidates, levels = candidates),
+  Year = factor(rep(c("1992", "1996"), each = length(candidates))),
+  Votes = c(votes_1992, votes_1996)
+)
+
+# Create a grouped bar chart with bars side by side
+ggplot(data, aes(x = Candidate, y = Votes, fill = Year)) +
+  geom_bar(stat = "identity", position = position_dodge(width = 0.8)) +
+  labs(
+    title = "Comparison of Votes for Selected Candidates (1992 vs. 1996)",
+    x = "Candidates",
+    y = "Votes",
+    fill = "Year",
+    caption = "Data source: NPP National Delegates Conferences"
+  ) +
+  scale_fill_manual(values = c("1992" = "red", "1996" = "blue")) +
+  theme_minimal() +
+  theme(legend.position = "top")
+
+
+
+# Load the ggplot2 library
+library(ggplot2)
+
+# Create a data frame with the vote information for the specified candidates
+candidates <- c("Prof. Albert Adu Boahen", "John Agyekum Kufuor", "Dr. Kofi Dsane Selby", "Dr. Kwame Safo Adu")
+votes_1992 <- c(1121, 326, 343,149)
+votes_1996 <- c(710, 1034, 24, 42)
+
+data <- data.frame(
+  Candidate = candidates,
+  Year = factor(rep(c("1992", "1996"), each = length(candidates))),
+  Votes = c(votes_1992, votes_1996)
+)
+
+# Create a grouped bar chart with bars side by side
+ggplot(data, aes(x = Candidate, y = Votes, fill = Year)) +
+  geom_bar(stat = "identity", position = position_dodge(width = 0.8)) +
+  labs(
+    title = "Candidates who appeared in both 1992 and 1996",
+    x = "Candidates",
+    y = "Votes",
+    fill = "Year",
+    caption = "Data source: NPP National Delegates Conferences"
+  ) +
+  scale_fill_manual(values = c("1992" = "red", "1996" = "blue")) +
+  theme_minimal() +
+  theme(legend.position = "top")
+
+
+
+
